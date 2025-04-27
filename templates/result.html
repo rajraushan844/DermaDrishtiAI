@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>NirogAI - Result</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to right, #e0c3fc, #8ec5fc);
+      margin: 0;
+      color: #2c3e50;
+    }
+    .navbar {
+      background: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+    .navbar .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #4b0082;
+    }
+    .navbar a {
+      text-decoration: none;
+      color: #2c3e50;
+      font-weight: 500;
+      margin: 0 15px;
+      transition: color 0.3s;
+    }
+    .navbar a:hover,
+    .navbar .active {
+      color: #4b0082;
+    }
+    h1 {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 2rem;
+    }
+    ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      padding: 0;
+      margin: 20px 0;
+    }
+    li {
+      background: #4b0082;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+    .result-container {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      max-width: 500px;
+      margin: 0 auto 30px auto;
+    }
+    .prediction-result {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+    .prediction-summary {
+      margin-top: 10px;
+      font-size: 1rem;
+    }
+    .prediction-link {
+      color: #4b0082;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-block;
+      margin-top: 10px;
+    }
+    .prediction-link:hover {
+      text-decoration: underline;
+    }
+    .upload-link {
+      display: block;
+      margin: 30px auto;
+      background: #4b0082;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s ease;
+      text-align: center;
+      max-width: 250px;
+    }
+    .upload-link:hover {
+      background: #37175d;
+    }
+    span {
+      color: #e67e22;
+      font-weight: bold;
+    }
+    img.uploaded-image {
+      max-width: 100%;
+      margin-top: 15px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <div class="logo"><i class="fas fa-heartbeat"></i> NirogAI</div>
+    <div>
+      <a href="/home">Home</a>
+      <a href="/">Upload</a>
+      <a href="/about">About</a>
+      <a href="/contact" class="active">Contact</a>
+    </div>
+  </div>
+
+  <h1>Available Diseases</h1>
+  <ul>
+    <li>Acne</li>
+    <li>Hairloss</li>
+    <li>Nail Fungus</li>
+    <li>Normal</li>
+    <li>Skin Allergy</li>
+  </ul>
+
+  <div class="result-container">
+    <h1>Prediction Result</h1>
+    <p class="prediction-result">Predicted Skin Disease: <span>{{ prediction }}</span></p>
+
+    {% if image_file %}
+      <img class="uploaded-image" src="{{ url_for('uploaded_file', filename=image_file) }}" alt="Uploaded Image">
+    {% endif %}
+    
+    <p class="prediction-summary">{{ summary }}</p>
+
+    <a class="prediction-link" href="https://en.wikipedia.org/wiki/{{ prediction }}" target="_blank">
+      Learn more on Wikipedia
+    </a>
+  </div>
+
+  <a class="upload-link" href="/">Upload another image</a>
+</body>
+</html>

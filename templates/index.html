@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NirogAI - Skin Condition Detection</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+    body {
+      background: linear-gradient(135deg, #e3f2fd, #e0e7ff);
+      color: #0f172a;
+      padding: 2rem;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      gap: 4rem;
+    }
+    .text-area {
+      max-width: 50%;
+    }
+    h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      color: #334155;
+    }
+    .btn {
+      background: #6366f1;
+      color: #fff;
+      padding: 0.8rem 2rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .btn:hover {
+      background: #4f46e5;
+    }
+    .card-container {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .card {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      padding: 1.5rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .icon {
+      background: #ede9fe;
+      color: #7c3aed;
+      padding: 1rem;
+      border-radius: 50%;
+      font-size: 1.5rem;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 4rem;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: #0f172a;
+    }
+    .nav-links a {
+      text-decoration: none;
+      margin-left: 2rem;
+      color: #1e293b;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover {
+      color: #6366f1;
+    }
+    @media screen and (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+      .text-area, .card-container {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-logo">
+      <img src="https://img.icons8.com/ios-filled/50/4e46e5/plus-math.png" width="28"/>
+      NirogAI
+    </div>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/upload">Upload</a>
+      <a href="#">About</a>
+      <a href="/contact">Contact</a>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="text-area">
+      <h1>Detect Skin Conditions with NirogAI</h1>
+      <p>An advanced AI tool to diagnose various skin conditions with ease. Upload an image and get results swiftly.</p>
+      <a href="/upload"><button class="btn">Get Started</button></a>
+    </div>
+    <div class="card-container">
+      <div class="card">
+        <div class="icon">⬆️</div>
+        <div>
+          <h3>Upload an Image</h3>
+          <p>Simply upload a skin image to our platform.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="icon">🤖</div>
+        <div>
+          <h3>AI Analysis</h3>
+          <p>Our AI will analyze the image for skin conditions.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="icon">✅</div>
+        <div>
+          <h3>View Results</h3>
+          <p>Receive an instant report on the detected condition.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

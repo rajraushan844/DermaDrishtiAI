@@ -113,6 +113,13 @@ def contact():
 
 # ✅ Run App
 if __name__ == '__main__':
+    import os
+    port = int(os.environ.get("PORT", 5000))  # Get port from environment (Render sets this)
+    
+    # Ensure uploads directory exists
     if not os.path.exists('uploads'):
         os.makedirs('uploads')
-    app.run(debug=True)
+        
+    # Run the app on 0.0.0.0 to allow external access
+    app.run(host='0.0.0.0', port=port, debug=True)
+

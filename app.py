@@ -59,6 +59,11 @@ def get_wikipedia_summary(topic):
 def home():
     return render_template('index.html')
 
+# ✅ About Page
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
 # ✅ Upload Image (Default Route)
 @app.route('/upload', methods=['GET', 'POST'])
 def upload_file():
@@ -84,7 +89,7 @@ def uploaded_file(filename):
 # ✅ Contact Page with GitHub API
 @app.route('/contact')
 def contact():
-    usernames = ['rajraushan844'] * 3
+    usernames = ['rajraushan844','kisankumarbhagat','PranavPrakash28']
     profiles = []
     for username in usernames:
         url = f'https://api.github.com/users/{username}'

@@ -2,123 +2,68 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Contact - NirogAI</title>
+  <title>Contact - SkinSightAI</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(to right, #e0c3fc, #8ec5fc);
-      color: #2c3e50;
-    }
-    .navbar {
-      background: white;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 50px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    }
-    .navbar .logo {
-      font-size: 1.5rem;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: #4b0082;
-    }
-    .navbar a {
-      text-decoration: none;
-      color: #2c3e50;
-      font-weight: 500;
-      margin: 0 15px;
-      transition: color 0.3s;
-    }
-    .navbar a:hover,
-    .navbar .active {
-      color: #4b0082;
-    }
-    .container {
-      max-width: 1000px;
-      margin: 50px auto;
-      padding: 20px;
-      text-align: center;
-    }
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 30px;
-    }
-    .card {
-      background: white;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      border-radius: 15px;
-      padding: 20px;
-      margin: 20px;
-      text-align: center;
-      width: 280px;
-      transition: transform 0.3s;
-    }
-    .card:hover {
-      transform: translateY(-5px);
-    }
-    .card img {
-      border-radius: 50%;
-      width: 100px;
-      height: 100px;
-    }
-    .card h3 {
-      margin: 15px 0 10px;
-      color: #4b0082;
-    }
-    .card p {
-      font-size: 1rem;
-    }
-    .card a {
-      color: #4b0082;
-      font-weight: 600;
-      text-decoration: none;
-    }
-    .card a:hover {
-      text-decoration: underline;
-    }
-    .footer {
-      text-align: center;
-      padding: 20px;
-      background: #f8f8f8;
-      font-size: 0.9rem;
-      color: #888;
-      margin-top: 40px;
-    }
-  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
-<body>
-  <div class="navbar">
-    <div class="logo"><i class="fas fa-heartbeat"></i> NirogAI</div>
-    <div>
-      <a href="{{ url_for('home') }}">Home</a>
-      <a href="{{ url_for('upload_file') }}">Upload</a>
-      <a href="{{ url_for('contact') }}" class="active">Contact</a>
-    </div>
-  </div>
+<body class="bg-gradient-to-r from-green-100 to-green-50 font-['Inter'] text-gray-800 min-h-screen flex flex-col">
 
-  <div class="container">
-    <h2>Meet the Developer</h2>
-    <div style="display: flex; flex-wrap: wrap; justify-content: center;">
-      {% for i in range(3) %}
-      <div class="card">
-        <img src="https://github.com/rajraushan844.png" alt="GitHub Avatar">
-        <h3>Raj Raushan</h3>
-        <p>Passionate developer focused on AI-driven health apps. Follow me on 
-          <a href="https://github.com/rajraushan844" target="_blank">GitHub</a>.
+  <nav class="bg-white shadow-md flex justify-between items-center px-10 py-4">
+    <div class="flex items-center gap-3 text-2xl font-bold text-green-700">
+      <i class="fas fa-heartbeat"></i> SkinSightAI
+    </div>
+    <div class="space-x-6">
+      <a href="{{ url_for('home') }}" class="text-gray-700 hover:text-green-600 font-medium transition-colors">Home</a>
+      <a href="{{ url_for('upload_file') }}" class="text-gray-700 hover:text-green-600 font-medium transition-colors">Upload</a>
+      <a href="{{ url_for('contact') }}" class="text-green-700 font-semibold border-b-2 border-green-600 pb-1">Contact</a>
+    </div>
+  </nav>
+
+  <div class="max-w-6xl mx-auto my-12 px-6 text-center flex-grow">
+    <h2 class="text-4xl font-bold text-green-800 mb-12">Meet the Developer</h2>
+    <div class="flex flex-wrap justify-center gap-10">
+      {% for profile in profiles %}
+      <div class="bg-white shadow-lg rounded-3xl p-8 w-72 hover:shadow-2xl transition-transform hover:-translate-y-2">
+        <img src="{{ profile.avatar }}" alt="GitHub Avatar" class="rounded-full w-28 h-28 mx-auto mb-5 object-cover border-4 border-green-200">
+        <h3 class="text-2xl font-semibold text-green-700 mb-2">{{ profile.name }}</h3>
+        <p class="text-base text-gray-600 mb-4">
+          {{ profile.bio }} <br>Follow me on 
+          <a href="{{ profile.url }}" target="_blank" class="text-green-600 font-semibold hover:underline">GitHub</a>.
         </p>
       </div>
       {% endfor %}
     </div>
   </div>
 
-  <div class="footer">
-    &copy; 2025 NirogAI. All rights reserved.
+  <!-- Footer -->
+<footer class="bg-white border-t mt-12">
+  <div class="max-w-7xl mx-auto px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-8">
+    
+    <!-- Left: Logo and Name -->
+    <div class="flex items-center gap-4">
+      <img src="static/1.png" alt="SkinSightAI Logo" class="w-12 h-12 object-cover rounded-full">
+      <div>
+        <h2 class="text-2xl font-bold text-green-700">SkinSightAI</h2>
+        <p class="text-sm text-gray-500">AI-Powered Skin Analysis</p>
+      </div>
+    </div>
+    
+    <!-- Right: Links and Copyright -->
+    <div class="flex flex-col md:flex-row md:items-center gap-6 text-center md:text-right">
+      <div class="space-x-6">
+        <a href="/" class="text-gray-600 hover:text-green-600 text-sm transition">Home</a>
+        <a href="/upload" class="text-gray-600 hover:text-green-600 text-sm transition">Upload</a>
+        <a href="/about" class="text-gray-600 hover:text-green-600 text-sm transition">About</a>
+        <a href="/contact" class="text-gray-600 hover:text-green-600 text-sm transition">Contact</a>
+      </div>
+      <p class="text-xs text-gray-400 mt-4 md:mt-0">© 2025 SkinSightAI. All rights reserved.</p>
+    </div>
+
   </div>
+</footer>
+
+  
+
 </body>
 </html>

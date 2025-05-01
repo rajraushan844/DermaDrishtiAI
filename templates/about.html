@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>About - SkinSightAI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-green-100 to-green-50 min-h-screen flex flex-col font-['Inter']">
+
+  <!-- Navbar -->
+  <nav class="flex justify-between items-center px-8 py-5 bg-white shadow-md">
+    <div class="flex items-center gap-3 text-2xl font-bold text-green-700">
+      <i class="fas fa-heartbeat"></i> SkinSightAI
+    </div>
+    <div class="space-x-8 text-lg font-semibold">
+      <a href="/" class="text-gray-700 hover:text-green-600 transition">Home</a>
+      <a href="/upload" class="text-gray-700 hover:text-green-600 transition">Upload</a>
+      <a href="/about" class="text-green-600 border-b-2 border-green-600 pb-1">About</a>
+      <a href="/contact" class="text-gray-700 hover:text-green-600 transition">Contact</a>
+    </div>
+  </nav>
+
+  <!-- About Section -->
+  <section class="flex-grow container mx-auto px-6 py-12">
+    <div class="text-center mb-12">
+      <h1 class="text-4xl font-bold text-green-800 mb-4">About SkinSightAI</h1>
+      <p class="text-lg text-gray-700 max-w-2xl mx-auto leading-relaxed">
+        At <span class="font-semibold text-green-700">SkinSightAI</span>, we believe technology should empower better healthcare for everyone.
+        Our mission is to make early skin disease detection accessible, fast, and reliable through cutting-edge Artificial Intelligence.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div class="space-y-6">
+        <h2 class="text-2xl font-bold text-green-700">How It Works</h2>
+        <p class="text-gray-700 leading-relaxed">
+          Using advanced machine learning models, SkinSightAI analyzes skin images to predict possible conditions such as Acne, Nail Fungus, Skin Allergy, Hair Loss, and more.
+          Simply upload an image or capture one live, and get instant, AI-powered insights about your skin health.
+        </p>
+        <h2 class="text-2xl font-bold text-green-700 mt-8">Our Vision</h2>
+        <p class="text-gray-700 leading-relaxed">
+          We envision a future where everyone has easy access to early skin diagnosis and preventive healthcare.
+          Our goal is to bridge the gap between patients and specialists by providing preliminary guidance that saves time and effort.
+        </p>
+      </div>
+
+      <div class="flex justify-center">
+        <img src="/static/1-removebg-preview.png" alt="Healthcare Innovation"
+             class="rounded-3xl shadow-2xl w-full max-w-md animate-fade-in"/>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="bg-green-600 py-12 mt-16">
+    <div class="text-center text-white px-4">
+      <h2 class="text-3xl font-bold mb-4">Join Us On the Journey to Smarter Healthcare</h2>
+      <p class="text-lg mb-6 max-w-2xl mx-auto">
+        Empower yourself with knowledge. Get AI insights instantly. Protect your skin health today.
+      </p>
+      <a href="/" class="bg-white text-green-700 font-bold py-3 px-8 rounded-full shadow-lg hover:bg-green-100 transition">
+        Upload Your Image
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <!-- Footer -->
+<footer class="bg-white border-t mt-12">
+    <div class="max-w-7xl mx-auto px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-8">
+      
+      <!-- Left: Logo and Name -->
+      <div class="flex items-center gap-4">
+        <img src="static/1.png" alt="SkinSightAI Logo" class="w-12 h-12 object-cover rounded-full">
+        <div>
+          <h2 class="text-2xl font-bold text-green-700">SkinSightAI</h2>
+          <p class="text-sm text-gray-500">AI-Powered Skin Analysis</p>
+        </div>
+      </div>
+      
+      <!-- Right: Links and Copyright -->
+      <div class="flex flex-col md:flex-row md:items-center gap-6 text-center md:text-right">
+        <div class="space-x-6">
+          <a href="/" class="text-gray-600 hover:text-green-600 text-sm transition">Home</a>
+          <a href="/upload" class="text-gray-600 hover:text-green-600 text-sm transition">Upload</a>
+          <a href="/about" class="text-gray-600 hover:text-green-600 text-sm transition">About</a>
+          <a href="/contact" class="text-gray-600 hover:text-green-600 text-sm transition">Contact</a>
+        </div>
+        <p class="text-xs text-gray-400 mt-4 md:mt-0">© 2025 SkinSightAI. All rights reserved.</p>
+      </div>
+  
+    </div>
+  </footer>
+  
+  
+
+  <!-- Animations -->
+  <style>
+    @keyframes fade-in {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in {
+      animation: fade-in 1s ease-out;
+    }
+  </style>
+
+  <!-- FontAwesome -->
+  <script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
+
+</body>
+</html>

@@ -3,151 +3,95 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Upload Image - NirogAI</title>
+  <title>Upload Image - SkinSightAI</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(to right, #e0c3fc, #8ec5fc);
-      color: #2c3e50;
-    }
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 50px;
-      background: white;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    }
-    .navbar .logo {
-      font-size: 1.5rem;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: #4b0082;
-    }
-    .navbar a {
-      text-decoration: none;
-      color: #2c3e50;
-      font-weight: 500;
-      margin: 0 15px;
-      transition: color 0.3s;
-    }
-    .navbar a:hover {
-      color: #4b0082;
-    }
-    .container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      padding: 60px 20px;
-      gap: 40px;
-    }
-    .info {
-      max-width: 400px;
-      text-align: left;
-    }
-    .info h2 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-      color: #4b0082;
-    }
-    .info p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-    }
-    .image-bg {
-      width: 100%;
-      max-width: 400px;
-      height: 250px;
-      background: url('https://i.ibb.co/zQY6CMy/skin-care.png') no-repeat center center/contain;
-      margin-top: 20px;
-    }
-    form {
-      background: white;
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      width: 100%;
-      max-width: 400px;
-    }
-    form button[type="button"],
-form button[type="submit"] {
-  padding: 12px;
-  border: none;
-  background: linear-gradient(135deg, #6a0dad, #4b0082);
-  color: white;
-  font-size: 1rem;
-  font-weight: 600;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-form button[type="button"]:hover,
-form button[type="submit"]:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(75, 0, 130, 0.4);
-}
-    input[type="file"] {
-      padding: 15px;
-      border: 2px dashed #4b0082;
-      border-radius: 10px;
-      background: #f3f3f3;
-      cursor: pointer;
-    }
-    button[type="submit"] {
-      padding: 14px;
-      border: none;
-      background: linear-gradient(135deg, #6a0dad, #4b0082);
-      color: white;
-      font-size: 1rem;
-      font-weight: 600;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    button[type="submit"]:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(75, 0, 130, 0.4);
-    }
-  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <div class="navbar">
-    <div class="logo"><i class="fas fa-heartbeat"></i> NirogAI</div>
-    <div>
-      <a href="/home">Home</a>
-      <a href="/">Upload</a>
-      <a href="/about">About</a>
-      <a href="/contact">Contact</a>
-    </div>
-  </div>
+<body class="bg-gradient-to-tr from-green-100 to-green-50 font-['Inter'] min-h-screen flex flex-col">
 
-  <div class="container">
-    <div class="info">
-      <h2>Detect Skin Conditions Instantly</h2>
-      <p>Use our AI-powered tool to analyze skin conditions from images. Simply upload a photo or capture one live from your camera, and get instant predictions to help guide your next steps.</p>
-      <div class="image-bg"></div>
+  <!-- Navbar -->
+  <nav class="flex justify-between items-center px-8 py-5 bg-white shadow-md">
+    <div class="flex items-center gap-3 text-2xl font-bold text-green-700">
+      <img src="static/1-removebg-preview.png" alt="Logo" class="w-10 h-10 object-cover rounded-full">
+      SkinSightAI
+    </div>
+    <div class="space-x-8 text-lg font-semibold">
+      <a href="/" class="text-gray-700 hover:text-green-600 transition-colors">Home</a>
+      <a href="/upload" class="text-gray-700 hover:text-green-600 transition-colors">Upload</a>
+      <a href="/about" class="text-gray-700 hover:text-green-600 transition-colors">About</a>
+      <a href="/contact" class="text-gray-700 hover:text-green-600 transition-colors">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Main Container -->
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-center gap-16 px-6 py-12 flex-grow">
+
+    <!-- Left Section (Info) -->
+    <div class="flex flex-col items-center md:items-center text-center md:text-left">
+      <img src="static/1-removebg-preview.png" alt="Skin Analysis" class="w-72 mb-6 rounded-2xl shadow-md alig">
+      <h2 class="text-4xl font-bold text-green-800 mb-4">Detect Skin Conditions Instantly</h2>
+      <p class="text-lg text-gray-600 leading-relaxed">
+        Use our AI-powered tool to analyze skin conditions. Upload a photo or capture one live from your camera and get instant predictions to guide your next steps.
+      </p>
     </div>
 
-    <form action="{{ url_for('upload_file') }}" method="POST" enctype="multipart/form-data">
-      <!-- Original file input -->
-      <input type="file" name="file" required>
-    
-      <!-- New: capture from camera (optional alternative input) -->
-      <input type="file" name="camera_file" accept="image/*" capture="environment" style="display: none;" id="cameraInput">
-      <button type="button" onclick="document.getElementById('cameraInput').click()"> Capture with Camera</button>
-    
-      <button type="submit">Predict</button>
+    <!-- Right Section (Form) -->
+    <form action="{{ url_for('upload_file') }}" method="POST" enctype="multipart/form-data" 
+          class="bg-white p-8 rounded-2xl shadow-xl flex flex-col gap-6 w-full max-w-md">
+
+      <!-- Upload from device -->
+      <div class="flex flex-col gap-2">
+        <label class="text-green-700 font-semibold text-lg">Upload an Image</label>
+        <input type="file" name="file" required class="p-4 border-2 border-dashed border-green-400 rounded-lg bg-green-50 cursor-pointer transition hover:bg-green-100">
+      </div>
+
+      <!-- Capture from Camera -->
+      <div class="flex flex-col gap-2">
+        <label class="text-green-700 font-semibold text-lg">Or Capture Live</label>
+        <input type="file" name="camera_file" accept="image/*" capture="environment" id="cameraInput" style="display:none;">
+        <button type="button" onclick="document.getElementById('cameraInput').click()" 
+                class="w-full bg-green-500 hover:bg-green-600 text-white py-3 rounded-lg font-semibold transition">
+          📷 Capture with Camera
+        </button>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class="w-full bg-gradient-to-r from-green-500 to-green-700 hover:from-green-600 hover:to-green-800 text-white py-3 rounded-lg font-bold transition">
+        🚀 Predict
+      </button>
     </form>
+
   </div>
+
+  <!-- Small Footer -->
+  <!-- Footer -->
+<footer class="bg-white border-t mt-12">
+  <div class="max-w-7xl mx-auto px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-8">
+    
+    <!-- Left: Logo and Name -->
+    <div class="flex items-center gap-4">
+      <img src="static/1.png" alt="SkinSightAI Logo" class="w-12 h-12 object-cover rounded-full">
+      <div>
+        <h2 class="text-2xl font-bold text-green-700">SkinSightAI</h2>
+        <p class="text-sm text-gray-500">AI-Powered Skin Analysis</p>
+      </div>
+    </div>
+    
+    <!-- Right: Links and Copyright -->
+    <div class="flex flex-col md:flex-row md:items-center gap-6 text-center md:text-right">
+      <div class="space-x-6">
+        <a href="/" class="text-gray-600 hover:text-green-600 text-sm transition">Home</a>
+        <a href="/upload" class="text-gray-600 hover:text-green-600 text-sm transition">Upload</a>
+        <a href="/about" class="text-gray-600 hover:text-green-600 text-sm transition">About</a>
+        <a href="/contact" class="text-gray-600 hover:text-green-600 text-sm transition">Contact</a>
+      </div>
+      <p class="text-xs text-gray-400 mt-4 md:mt-0">© 2025 SkinSightAI. All rights reserved.</p>
+    </div>
+
+  </div>
+</footer>
+
+  
+
 </body>
 </html>

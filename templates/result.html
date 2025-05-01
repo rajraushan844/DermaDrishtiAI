@@ -2,154 +2,111 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>NirogAI - Result</title>
+  <title>SkinSightAI - Result</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-green-100 to-green-50 min-h-screen flex flex-col font-['Inter']">
+
+  <!-- Navbar -->
+  <nav class="flex justify-between items-center px-8 py-5 bg-white shadow-md">
+    <div class="flex items-center gap-3 text-2xl font-bold text-green-700">
+      <i class="fas fa-heartbeat"></i> SkinSightAI
+    </div>
+    <div class="space-x-8 text-lg font-semibold">
+      <a href="/" class="text-gray-700 hover:text-green-600 transition">Home</a>
+      <a href="/upload" class="text-gray-700 hover:text-green-600 transition">Upload</a>
+      <a href="/about" class="text-gray-700 hover:text-green-600 transition">About</a>
+      <a href="/contact" class="text-green-600 border-b-2 border-green-600 pb-1">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Diseases List -->
+  <section class="mt-12 text-center">
+    <h1 class="text-4xl font-bold text-green-800 mb-6">Available Diseases</h1>
+    <ul class="flex flex-wrap justify-center gap-4 px-4">
+      <li class="bg-green-600 text-white px-5 py-2 rounded-full text-lg font-medium">Acne</li>
+      <li class="bg-green-600 text-white px-5 py-2 rounded-full text-lg font-medium">Hairloss</li>
+      <li class="bg-green-600 text-white px-5 py-2 rounded-full text-lg font-medium">Nail Fungus</li>
+      <li class="bg-green-600 text-white px-5 py-2 rounded-full text-lg font-medium">Normal</li>
+      <li class="bg-green-600 text-white px-5 py-2 rounded-full text-lg font-medium">Skin Allergy</li>
+    </ul>
+  </section>
+
+  <!-- Result Container -->
+  <section class="flex-grow flex flex-col items-center justify-center py-12">
+    <div class="bg-white shadow-2xl rounded-3xl p-8 w-full max-w-lg text-center animate-fade-in">
+      
+      <h1 class="text-3xl font-bold text-green-700 mb-6">Prediction Result</h1>
+
+      <p class="text-xl mb-4 font-semibold text-gray-700">
+        Predicted Skin Disease: 
+        <span class="text-orange-500 font-bold">{{ prediction }}</span>
+      </p>
+
+      {% if image_file %}
+        <img src="{{ url_for('uploaded_file', filename=image_file) }}" alt="Uploaded Image"
+             class="w-full max-w-xs mx-auto mt-6 rounded-xl shadow-md" />
+      {% endif %}
+
+      <p class="text-gray-600 mt-6 leading-relaxed">{{ summary }}</p>
+
+      <a href="https://en.wikipedia.org/wiki/{{ prediction }}" target="_blank"
+         class="inline-block mt-6 text-green-700 hover:text-green-800 font-semibold underline">
+        Learn more on Wikipedia
+      </a>
+    </div>
+
+    <!-- Upload Another -->
+    <a href="/"
+      class="mt-10 inline-block bg-gradient-to-r from-green-500 to-green-700 hover:from-green-600 hover:to-green-800 text-white text-lg font-semibold py-3 px-8 rounded-full shadow-lg transition">
+      Upload Another Image
+    </a>
+  </section>
+
+  <!-- Footer -->
+  <!-- Footer -->
+<footer class="bg-white border-t mt-12">
+  <div class="max-w-7xl mx-auto px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-8">
+    
+    <!-- Left: Logo and Name -->
+    <div class="flex items-center gap-4">
+      <img src="static/1.png" alt="SkinSightAI Logo" class="w-12 h-12 object-cover rounded-full">
+      <div>
+        <h2 class="text-2xl font-bold text-green-700">SkinSightAI</h2>
+        <p class="text-sm text-gray-500">AI-Powered Skin Analysis</p>
+      </div>
+    </div>
+    
+    <!-- Right: Links and Copyright -->
+    <div class="flex flex-col md:flex-row md:items-center gap-6 text-center md:text-right">
+      <div class="space-x-6">
+        <a href="/" class="text-gray-600 hover:text-green-600 text-sm transition">Home</a>
+        <a href="/upload" class="text-gray-600 hover:text-green-600 text-sm transition">Upload</a>
+        <a href="/about" class="text-gray-600 hover:text-green-600 text-sm transition">About</a>
+        <a href="/contact" class="text-gray-600 hover:text-green-600 text-sm transition">Contact</a>
+      </div>
+      <p class="text-xs text-gray-400 mt-4 md:mt-0">© 2025 SkinSightAI. All rights reserved.</p>
+    </div>
+
+  </div>
+</footer>
+
+  
+
+  <!-- Animation Styles -->
   <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(to right, #e0c3fc, #8ec5fc);
-      margin: 0;
-      color: #2c3e50;
+    @keyframes fade-in {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-    .navbar {
-      background: white;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 50px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    }
-    .navbar .logo {
-      font-size: 1.5rem;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: #4b0082;
-    }
-    .navbar a {
-      text-decoration: none;
-      color: #2c3e50;
-      font-weight: 500;
-      margin: 0 15px;
-      transition: color 0.3s;
-    }
-    .navbar a:hover,
-    .navbar .active {
-      color: #4b0082;
-    }
-    h1 {
-      text-align: center;
-      margin-top: 30px;
-      font-size: 2rem;
-    }
-    ul {
-      list-style: none;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-      padding: 0;
-      margin: 20px 0;
-    }
-    li {
-      background: #4b0082;
-      color: white;
-      padding: 8px 16px;
-      border-radius: 20px;
-      font-weight: 500;
-    }
-    .result-container {
-      background: white;
-      padding: 30px;
-      border-radius: 15px;
-      text-align: center;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      max-width: 500px;
-      margin: 0 auto 30px auto;
-    }
-    .prediction-result {
-      font-size: 1.5rem;
-      margin-bottom: 10px;
-    }
-    .prediction-summary {
-      margin-top: 10px;
-      font-size: 1rem;
-    }
-    .prediction-link {
-      color: #4b0082;
-      text-decoration: none;
-      font-weight: 600;
-      display: inline-block;
-      margin-top: 10px;
-    }
-    .prediction-link:hover {
-      text-decoration: underline;
-    }
-    .upload-link {
-      display: block;
-      margin: 30px auto;
-      background: #4b0082;
-      color: white;
-      padding: 12px 25px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: background 0.3s ease;
-      text-align: center;
-      max-width: 250px;
-    }
-    .upload-link:hover {
-      background: #37175d;
-    }
-    span {
-      color: #e67e22;
-      font-weight: bold;
-    }
-    img.uploaded-image {
-      max-width: 100%;
-      margin-top: 15px;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    .animate-fade-in {
+      animation: fade-in 0.8s ease-out;
     }
   </style>
-</head>
-<body>
-  <div class="navbar">
-    <div class="logo"><i class="fas fa-heartbeat"></i> NirogAI</div>
-    <div>
-      <a href="/home">Home</a>
-      <a href="/">Upload</a>
-      <a href="/about">About</a>
-      <a href="/contact" class="active">Contact</a>
-    </div>
-  </div>
 
-  <h1>Available Diseases</h1>
-  <ul>
-    <li>Acne</li>
-    <li>Hairloss</li>
-    <li>Nail Fungus</li>
-    <li>Normal</li>
-    <li>Skin Allergy</li>
-  </ul>
+  <!-- FontAwesome -->
+  <script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
 
-  <div class="result-container">
-    <h1>Prediction Result</h1>
-    <p class="prediction-result">Predicted Skin Disease: <span>{{ prediction }}</span></p>
-
-    {% if image_file %}
-      <img class="uploaded-image" src="{{ url_for('uploaded_file', filename=image_file) }}" alt="Uploaded Image">
-    {% endif %}
-    
-    <p class="prediction-summary">{{ summary }}</p>
-
-    <a class="prediction-link" href="https://en.wikipedia.org/wiki/{{ prediction }}" target="_blank">
-      Learn more on Wikipedia
-    </a>
-  </div>
-
-  <a class="upload-link" href="/">Upload another image</a>
 </body>
 </html>

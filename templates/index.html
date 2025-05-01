@@ -3,157 +3,107 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NirogAI - Skin Condition Detection</title>
+  <title>SkinSightAI - Skin Condition Detection</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
-    }
-    body {
-      background: linear-gradient(135deg, #e3f2fd, #e0e7ff);
-      color: #0f172a;
-      padding: 2rem;
-    }
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-      gap: 4rem;
-    }
-    .text-area {
-      max-width: 50%;
-    }
-    h1 {
-      font-size: 3rem;
-      font-weight: 700;
-      margin-bottom: 1.5rem;
-    }
-    p {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-      color: #334155;
-    }
-    .btn {
-      background: #6366f1;
-      color: #fff;
-      padding: 0.8rem 2rem;
-      font-size: 1rem;
-      font-weight: 600;
-      border: none;
-      border-radius: 12px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-    .btn:hover {
-      background: #4f46e5;
-    }
-    .card-container {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-    .card {
-      background: white;
-      border-radius: 16px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-      padding: 1.5rem 2rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      transition: transform 0.3s ease;
-    }
-    .card:hover {
-      transform: translateY(-5px);
-    }
-    .icon {
-      background: #ede9fe;
-      color: #7c3aed;
-      padding: 1rem;
-      border-radius: 50%;
-      font-size: 1.5rem;
-    }
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 4rem;
-    }
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-weight: 700;
-      font-size: 1.5rem;
-      color: #0f172a;
-    }
-    .nav-links a {
-      text-decoration: none;
-      margin-left: 2rem;
-      color: #1e293b;
-      font-weight: 600;
-      transition: color 0.3s;
-    }
-    .nav-links a:hover {
-      color: #6366f1;
-    }
-    @media screen and (max-width: 768px) {
-      .container {
-        flex-direction: column;
-      }
-      .text-area, .card-container {
-        max-width: 100%;
-      }
-    }
-  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <nav class="navbar">
-    <div class="nav-logo">
-      <img src="https://img.icons8.com/ios-filled/50/4e46e5/plus-math.png" width="28"/>
-      NirogAI
+<body class="bg-gradient-to-tr from-green-100 to-green-50 text-gray-800 font-['Inter'] min-h-screen flex flex-col">
+
+  <!-- Navbar -->
+  <nav class="flex justify-between items-center px-8 py-5 bg-white shadow-md">
+    <div class="flex items-center gap-3 text-2xl font-bold text-green-700">
+      <img src="static/1-removebg-preview.png" alt="Logo" class="w-10 h-10 object-cover rounded-full">
+      SkinSightAI
     </div>
-    <div class="nav-links">
-      <a href="/">Home</a>
-      <a href="/upload">Upload</a>
-      <a href="#">About</a>
-      <a href="/contact">Contact</a>
+    <div class="space-x-8 text-lg font-semibold">
+      <a href="/" class="text-gray-700 hover:text-green-600 transition-colors">Home</a>
+      <a href="/upload" class="text-gray-700 hover:text-green-600 transition-colors">Upload</a>
+      <a href="/about" class="text-gray-700 hover:text-green-600 transition-colors">About</a>
+      <a href="/contact" class="text-gray-700 hover:text-green-600 transition-colors">Contact</a>
     </div>
   </nav>
-  <div class="container">
-    <div class="text-area">
-      <h1>Detect Skin Conditions with NirogAI</h1>
-      <p>An advanced AI tool to diagnose various skin conditions with ease. Upload an image and get results swiftly.</p>
-      <a href="/upload"><button class="btn">Get Started</button></a>
+
+  <!-- Main Content -->
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12 px-6 py-12 flex-grow">
+    
+    <!-- Left Text Area -->
+    <div class="max-w-xl">
+      <h1 class="text-4xl md:text-5xl font-extrabold leading-tight text-green-800 mb-6">
+        Detect Skin Conditions with SkinSightAI
+      </h1>
+      <p class="text-lg text-gray-600 mb-8">
+        An advanced AI tool to diagnose various skin conditions with ease. Upload an image and get results swiftly.
+      </p>
+      <a href="/upload">
+        <button class="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-xl text-lg transition-all">
+          Get Started
+        </button>
+      </a>
     </div>
-    <div class="card-container">
-      <div class="card">
-        <div class="icon">⬆️</div>
+
+    <!-- Right Card Area -->
+    <div class="flex flex-col gap-6 w-full md:w-auto">
+      <div class="flex items-center gap-4 p-6 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-transform hover:-translate-y-2">
+        <div class="bg-green-100 text-green-700 p-4 rounded-full text-2xl">
+          ⬆️
+        </div>
         <div>
-          <h3>Upload an Image</h3>
-          <p>Simply upload a skin image to our platform.</p>
+          <h3 class="text-xl font-bold text-green-800">Upload an Image</h3>
+          <p class="text-gray-600 text-base">Simply upload a skin image to our platform.</p>
         </div>
       </div>
-      <div class="card">
-        <div class="icon">🤖</div>
+
+      <div class="flex items-center gap-4 p-6 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-transform hover:-translate-y-2">
+        <div class="bg-green-100 text-green-700 p-4 rounded-full text-2xl">
+          🤖
+        </div>
         <div>
-          <h3>AI Analysis</h3>
-          <p>Our AI will analyze the image for skin conditions.</p>
+          <h3 class="text-xl font-bold text-green-800">AI Analysis</h3>
+          <p class="text-gray-600 text-base">Our AI will analyze the image for skin conditions.</p>
         </div>
       </div>
-      <div class="card">
-        <div class="icon">✅</div>
+
+      <div class="flex items-center gap-4 p-6 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-transform hover:-translate-y-2">
+        <div class="bg-green-100 text-green-700 p-4 rounded-full text-2xl">
+          ✅
+        </div>
         <div>
-          <h3>View Results</h3>
-          <p>Receive an instant report on the detected condition.</p>
+          <h3 class="text-xl font-bold text-green-800">View Results</h3>
+          <p class="text-gray-600 text-base">Receive an instant report on the detected condition.</p>
         </div>
       </div>
     </div>
+
   </div>
+
+  <!-- Footer -->
+<footer class="bg-white border-t mt-12">
+  <div class="max-w-7xl mx-auto px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-8">
+    
+    <!-- Left: Logo and Name -->
+    <div class="flex items-center gap-4">
+      <img src="static/1.png" alt="SkinSightAI Logo" class="w-12 h-12 object-cover rounded-full">
+      <div>
+        <h2 class="text-2xl font-bold text-green-700">SkinSightAI</h2>
+        <p class="text-sm text-gray-500">AI-Powered Skin Analysis</p>
+      </div>
+    </div>
+    
+    <!-- Right: Links and Copyright -->
+    <div class="flex flex-col md:flex-row md:items-center gap-6 text-center md:text-right">
+      <div class="space-x-6">
+        <a href="/" class="text-gray-600 hover:text-green-600 text-sm transition">Home</a>
+        <a href="/upload" class="text-gray-600 hover:text-green-600 text-sm transition">Upload</a>
+        <a href="/about" class="text-gray-600 hover:text-green-600 text-sm transition">About</a>
+        <a href="/contact" class="text-gray-600 hover:text-green-600 text-sm transition">Contact</a>
+      </div>
+      <p class="text-xs text-gray-400 mt-4 md:mt-0">© 2025 SkinSightAI. All rights reserved.</p>
+    </div>
+
+  </div>
+</footer>
+
+  
+
 </body>
 </html>
